@@ -1,0 +1,5 @@
+package com.appsamurai.appsprize_compose_demo
+
+const val APPS_PRIZE_APP_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MX0.6YZeCXIC7StDO4wf1m0wQusrVR8ZwxzXIKFVUDYLKP4"
+const val USER_ID = "TEST_USER_ID"
+const val ADVERTISING_ID = "AA1111AA-A111-11AA-A111-11AAA1A11111"
