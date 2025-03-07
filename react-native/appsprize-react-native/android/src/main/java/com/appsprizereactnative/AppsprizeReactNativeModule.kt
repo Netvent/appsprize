@@ -8,6 +8,8 @@ import com.appsamurai.appsprize.AppsPrize
 import com.appsamurai.appsprize.AppsPrizeListener
 import com.appsamurai.appsprize.AppsPrizeNotification
 import com.appsamurai.appsprize.config.AppsPrizeConfig
+import com.appsamurai.appsprize.config.AppsPrizeOfferwallOptions
+import com.appsamurai.appsprize.config.AppsPrizeOfferwallType
 import com.appsamurai.appsprize.config.style.AppsPrizeStyleConfig
 import com.facebook.react.bridge.Arguments
 import com.facebook.react.bridge.Callback
@@ -65,14 +67,17 @@ class AppsprizeReactNativeModule(reactContext: ReactApplicationContext): ReactCo
     }
 
     @ReactMethod
-    fun launch(promise: Promise) {
+    fun launch(raw: String, promise: Promise) {
         Log.d("[AppsPrizeAndroid]", " launch()")
         val activity = currentActivity ?: run {
             promise.reject(Exception("AppsPrize:Android: no current activity found"))
             return
         }
         Handler(activity.mainLooper).post {
-            val result = AppsPrize.launchActivity(activity)
+            val map = jsonStringToMap(raw)?.get("options") as? Map<String, Any?>
+            Log.d("[AppsPrizeAndroid]", "launch options $map")
+            val offerwallOptions = buildOptions(map)
+            val result = AppsPrize.launchActivity(activity, offerwallOptions)
             promise.resolve(result)
         }
     }
@@ -200,6 +205,7 @@ class AppsprizeReactNativeModule(reactContext: ReactApplicationContext): ReactCo
         val highlightColor = (map["highlightColor"] as? String)?.let { Color.parseColor(it) }
 
         val promotionHighlightColor = (map["promotionHighlightColor"] as? String?)?.let { Color.parseColor(it) }
+        val dailyHighlightColor = (map["dailyHighlightColor"] as? String?)?.let { Color.parseColor(it) }
         val cashbackHighlightColor = (map["cashbackHighlightColor"] as? String?)?.let { Color.parseColor(it) }
         val secondChanceHighlightColor = (map["secondChanceHighlightColor"] as? String?)?.let { Color.parseColor(it) }
         val commonTaskHighlightColor = (map["commonTaskHighlightColor"] as? String?)?.let { Color.parseColor(it) }
@@ -217,6 +223,7 @@ class AppsprizeReactNativeModule(reactContext: ReactApplicationContext): ReactCo
             .setSecondaryColor(secondaryColor)
             .setHighlightColor(highlightColor)
             .setPromotionHighlightColor(promotionHighlightColor)
+            .setDailyHighlightColor(dailyHighlightColor)
             .setCashbackHighlightColor(cashbackHighlightColor)
             .setSecondChanceHighlightColor(secondChanceHighlightColor)
             .setCommonTaskHighlightColor(commonTaskHighlightColor)
@@ -229,6 +236,17 @@ class AppsprizeReactNativeModule(reactContext: ReactApplicationContext): ReactCo
             .setCurrencyIcon(currencyIcon)
             .build()
     }
+
+
+    private fun buildOptions(map: Map<String, Any?>?): AppsPrizeOfferwallOptions {
+        val type = (map?.get("type") as? String)?.uppercase()?.let {
+            try { AppsPrizeOfferwallType.valueOf(it) } catch (_: Exception) { null }
+        }
+        return AppsPrizeOfferwallOptions.Builder()
+            .setType(type)
+            .build()
+    }
+
 
     private fun sendEvent(event: Events, map: Map<String, Any?>? = null) {
         val raw = mapToJsonString(map)
