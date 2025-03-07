@@ -21,10 +21,10 @@ namespace AppsPrizeUnity
             #endif
         }
 
-        public static void Launch()
+        public static void Launch(AppsPrizeOfferwallOptions options = null)
         {
             #if UNITY_ANDROID
-                AppsPrizeAndroid.Launch();
+                AppsPrizeAndroid.Launch(options);
             #endif
         }
 

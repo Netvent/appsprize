@@ -74,6 +74,10 @@ namespace AppsPrizeUnity.Platforms.Android
             {
                 styleConfigBuilder.Call<AndroidJavaObject>("setPromotionHighlightColor", AndroidUtil.ToAndroidColor(styleConfig.promotionHighlightColor.Value));
             }
+            if (styleConfig.dailyHighlightColor.HasValue)
+            {
+                styleConfigBuilder.Call<AndroidJavaObject>("setDailyHighlightColor", AndroidUtil.ToAndroidColor(styleConfig.dailyHighlightColor.Value));
+            }
             if (styleConfig.cashbackHighlightColor.HasValue)
             {
                 styleConfigBuilder.Call<AndroidJavaObject>("setCashbackHighlightColor", AndroidUtil.ToAndroidColor(styleConfig.cashbackHighlightColor.Value));

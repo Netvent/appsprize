@@ -36,10 +36,12 @@ namespace AppsPrizeUnity.Platforms.Android
             }));
         }
 
-        public static void Launch()
+        public static void Launch(AppsPrizeOfferwallOptions options = null)
         {
+            AndroidJavaObject androidOptions = null;
+            androidOptions = AppsPrizeOfferwallOptionsAndroid.Create(options ?? new AppsPrizeOfferwallOptions());
             unityActivity.Call("runOnUiThread", new AndroidJavaRunnable(() => {
-                appsPrizeClass.CallStatic<bool>("launchActivity", unityActivity);
+                appsPrizeClass.CallStatic<bool>("launchActivity", unityActivity, androidOptions);
             }));
         }
 
