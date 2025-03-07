@@ -19,6 +19,7 @@ export interface AppsPrizeStyleConfig {
     secondaryColor?: string;
     highlightColor?: string;
     promotionHighlightColor?: string;
+    dailyHighlightColor?: string;
     cashbackHighlightColor?: string;
     secondChanceHighlightColor?: string;
     commonTaskHighlightColor?: string;
@@ -29,6 +30,10 @@ export interface AppsPrizeStyleConfig {
     offersTitleText?: string;
     appsTitleText?: string;
     currencyIcon?: string;
+}
+
+export interface AppsPrizeOptions {
+    type?: "only_time" | "only_task" | "all";
 }
 
 export interface RewardLevel {

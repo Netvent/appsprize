@@ -1,5 +1,12 @@
 # Release Notes
 
+### 2.2.0 (07.03.2025)
+* added onboarding / consent disable
+* added only time-based or task-based options
+* added daily highlight color customization
+* fixed back press black screen
+* fixed android 15 inset
+
 ### 2.1.0 (12.12.2024)
 * fixed proguard default listener
 * improved security

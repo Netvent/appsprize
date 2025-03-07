@@ -50,6 +50,7 @@ namespace AppsPrizeUnity
        public readonly Color? secondaryColor = null;
        public readonly Color? highlightColor = null;
        public readonly Color? promotionHighlightColor = null;
+       public readonly Color? dailyHighlightColor = null;
        public readonly Color? cashbackHighlightColor = null;
        public readonly Color? secondChanceHighlightColor = null;
        public readonly Color? commonTaskHighlightColor = null;
@@ -63,6 +64,7 @@ namespace AppsPrizeUnity
             Color? secondaryColor = null,
             Color? highlightColor = null,
             Color? promotionHighlightColor = null,
+            Color? dailyHighlightColor = null,
             Color? cashbackHighlightColor = null,
             Color? secondChanceHighlightColor = null,
             Color? commonTaskHighlightColor = null,
@@ -75,6 +77,7 @@ namespace AppsPrizeUnity
             this.secondaryColor = secondaryColor;
             this.highlightColor = highlightColor;
             this.promotionHighlightColor = promotionHighlightColor;
+            this.dailyHighlightColor = dailyHighlightColor;
             this.cashbackHighlightColor = cashbackHighlightColor;
             this.secondChanceHighlightColor = secondChanceHighlightColor;
             this.commonTaskHighlightColor = commonTaskHighlightColor;

@@ -1,6 +1,6 @@
 import { AppsPrizeEventType, type AppsPrizeListener, type OnInitializeEvent, type OnInitializeFailedEvent, type OnNotificationEvent, type OnRewardUpdateEvent } from "./Events"
 import AppsPrizeNative, { addEventListener, decodeData, encodeData, removeAllListeners } from "./AppsPrizeNative"
-import type { AppRewards, AppsPrizeConfig } from "./Data";
+import type { AppRewards, AppsPrizeConfig, AppsPrizeOptions } from "./Data";
 
 
 function init(config: AppsPrizeConfig, listener: AppsPrizeListener) {
@@ -27,8 +27,9 @@ function init(config: AppsPrizeConfig, listener: AppsPrizeListener) {
     AppsPrizeNative?.init(rawConfig)
 }
 
-function launch(): Promise<boolean> {
-    return AppsPrizeNative?.launch() ?? Promise.reject("AppsPrizeNative not available")
+function launch(options?: AppsPrizeOptions): Promise<boolean> {
+    let rawOptions = encodeData({ options }) ?? "";
+    return AppsPrizeNative?.launch(rawOptions) ?? Promise.reject("AppsPrizeNative not available")
 }
 
 function open(campaignId: number): Promise<boolean> {
