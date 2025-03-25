@@ -14,6 +14,10 @@ public class NavigateAppsPrizeButton : MonoBehaviour
 
 	void TaskOnClick(){
 
-		AppsPrize.Launch();
+		AppsPrize.Launch(
+			new AppsPrizeOfferwallOptions(
+				type: AppsPrizeOfferwallOptionType.ALL /**  AppsPrizeOfferwallOptionType.ALL | AppsPrizeOfferwallOptionType.ONLY_TIME | AppsPrizeOfferwallOptionType.ONLY_TASK */
+			)
+		);
 	}
 }
