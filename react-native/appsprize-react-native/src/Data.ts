@@ -18,6 +18,7 @@ export interface AppsPrizeStyleConfig {
     primaryColor?: string;
     secondaryColor?: string;
     highlightColor?: string;
+    offerCardColor?: string;
     promotionHighlightColor?: string;
     dailyHighlightColor?: string;
     cashbackHighlightColor?: string;

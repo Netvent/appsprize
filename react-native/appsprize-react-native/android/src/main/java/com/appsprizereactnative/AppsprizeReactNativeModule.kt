@@ -204,6 +204,8 @@ class AppsprizeReactNativeModule(reactContext: ReactApplicationContext): ReactCo
         val secondaryColor = (map["secondaryColor"] as? String)?.let { Color.parseColor(it) }
         val highlightColor = (map["highlightColor"] as? String)?.let { Color.parseColor(it) }
 
+        val offerCardColor = (map["offerCardColor"] as? String)?.let { Color.parseColor(it) }
+
         val promotionHighlightColor = (map["promotionHighlightColor"] as? String?)?.let { Color.parseColor(it) }
         val dailyHighlightColor = (map["dailyHighlightColor"] as? String?)?.let { Color.parseColor(it) }
         val cashbackHighlightColor = (map["cashbackHighlightColor"] as? String?)?.let { Color.parseColor(it) }
@@ -222,6 +224,7 @@ class AppsprizeReactNativeModule(reactContext: ReactApplicationContext): ReactCo
             .setPrimaryColor(primaryColor)
             .setSecondaryColor(secondaryColor)
             .setHighlightColor(highlightColor)
+            .setOfferCardColor(offerCardColor)
             .setPromotionHighlightColor(promotionHighlightColor)
             .setDailyHighlightColor(dailyHighlightColor)
             .setCashbackHighlightColor(cashbackHighlightColor)
