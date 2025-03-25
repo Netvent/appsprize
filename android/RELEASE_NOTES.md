@@ -1,5 +1,13 @@
 # Release Notes
 
+### 2.3.0 (25.03.2025)
+* added decimal/ceil reward type
+* added gif asset support
+* added offer detail video support
+* added separate assets for offercard and detail
+* added offer card UI customization
+* improved support screen as web-view
+
 ### 2.2.0 (07.03.2025)
 * added onboarding / consent disable
 * added only time-based or task-based options
