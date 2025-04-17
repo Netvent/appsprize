@@ -1,5 +1,5 @@
 <dependencies>
     <androidPackages>
-        <androidPackage spec="com.appsamurai.appsprize:appsprize:2.3.0" />
+        <androidPackage spec="com.appsamurai.appsprize:appsprize:2.3.1" />
     </androidPackages>
 </dependencies>

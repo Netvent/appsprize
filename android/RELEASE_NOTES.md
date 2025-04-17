@@ -1,5 +1,8 @@
 # Release Notes
 
+### 2.3.1 (17.04.2025)
+* fixed local cache invalidation
+
 ### 2.3.0 (25.03.2025)
 * added decimal/ceil reward type
 * added gif asset support
