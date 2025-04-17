@@ -7,7 +7,7 @@ import AppsPrize, { type AppsPrizeConfig, type AppsPrizeStyleConfig } from 'apps
 const buildConfig = (customization: Boolean): AppsPrizeConfig => {
   return {
     token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MX0.6YZeCXIC7StDO4wf1m0wQusrVR8ZwxzXIKFVUDYLKP4",
-    userId: "1111-5",
+    userId: "11112",
     advertisingId: "AA1111AA-A111-11AA-A111-11AAA1A11333",
     country: "US",
     language: "en",
@@ -24,6 +24,7 @@ let styleConfig: AppsPrizeStyleConfig =  {
   primaryColor: "#265073",
   secondaryColor: "#F1FADA",
   highlightColor: "#FF11FF",
+  offerCardColor: "#FF0000",
   promotionHighlightColor: "#00FFFF",
   cashbackHighlightColor: "#00FFFF",
   secondChanceHighlightColor: "#00FFFF",
@@ -80,7 +81,7 @@ export default function App() {
       <Button
         title='AppsPrize Launch'
         onPress={() => {
-          AppsPrize.launch()
+          AppsPrize.launch({type: "all"})
         }}
       />
       <Button
