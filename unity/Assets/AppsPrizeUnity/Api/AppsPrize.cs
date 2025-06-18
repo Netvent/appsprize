@@ -28,10 +28,10 @@ namespace AppsPrizeUnity
             #endif
         }
 
-        public static void Open(int campaignId)
+        public static void Open(int campaignId, AppsPrizeOfferwallOptions options = null)
         {
             #if UNITY_ANDROID
-                AppsPrizeAndroid.Open(campaignId);
+                AppsPrizeAndroid.Open(campaignId, options);
             #endif
         }
 
