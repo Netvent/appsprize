@@ -1,5 +1,8 @@
 # Release Notes
 
+### 2.3.2 (18.06.2025)
+* fixed open with offerwall options
+
 ### 2.3.1 (17.04.2025)
 * fixed local cache invalidation
 
