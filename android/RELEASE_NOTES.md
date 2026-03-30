@@ -1,5 +1,8 @@
 # Release Notes
 
+### 2.4.1 (30.03.2026)
+* fixed currency icon for offerwall
+
 ### 2.4.0 (25.02.2026)
 * updated with light theme design
 
